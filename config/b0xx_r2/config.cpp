@@ -17,8 +17,18 @@ CommunicationBackend **backends = nullptr;
 size_t backend_count;
 KeyboardMode *current_kb_mode = nullptr;
 
+//9 -> default L
+//10->default LS
+//11 -> default MS
+//A4 -> default Z
+
+//5-> default cdown (home)
+//A1-> default cleft (Select)
+//A2-> default cup ()
+//A0-> default cright ()
+
 GpioButtonMapping button_mappings[] = {
-    {&InputState::l,            9 },
+    {&InputState::l,            A4 },
     { &InputState::left,        15},
     { &InputState::down,        16},
     { &InputState::right,       14},
@@ -28,21 +38,21 @@ GpioButtonMapping button_mappings[] = {
 
     { &InputState::start,       12},
 
-    { &InputState::c_left,      A1},
+    { &InputState::c_left,      A0},
     { &InputState::c_up,        A2},
-    { &InputState::c_down,      5 },
+    { &InputState::c_down,      9 },
     { &InputState::a,           13},
-    { &InputState::c_right,     A0},
+    { &InputState::c_right,     5},
 
     { &InputState::b,           4 },
     { &InputState::x,           A5},
-    { &InputState::z,           A4},
+    { &InputState::z,           10},
     { &InputState::up,          A3},
 
     { &InputState::r,           0 },
     { &InputState::y,           1 },
-    { &InputState::lightshield, 10},
-    { &InputState::midshield,   11},
+    { &InputState::lightshield, 11},
+    { &InputState::midshield,   A1},
 };
 size_t button_count = sizeof(button_mappings) / sizeof(GpioButtonMapping);
 
