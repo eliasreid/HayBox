@@ -119,10 +119,8 @@ void setup() {
         backends = new CommunicationBackend *[backend_count] { primary_backend };
     }
 
-    // Default to Melee mode.
-    primary_backend->SetGameMode(
-        new Melee20Button(socd::SOCD_2IP_NO_REAC, { .crouch_walk_os = false })
-    );
+    // Default to FGC mode
+    primary_backend->SetGameMode( new FgcMode(socd::SOCD_NEUTRAL, socd::SOCD_NEUTRAL));
 }
 
 void loop() {
