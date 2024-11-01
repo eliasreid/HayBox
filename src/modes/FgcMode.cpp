@@ -1,7 +1,7 @@
 #include "modes/FgcMode.hpp"
 
 FgcMode::FgcMode(socd::SocdType horizontal_socd, socd::SocdType vertical_socd) {
-    _socd_pair_count = 4;
+    _socd_pair_count = 2;
     _socd_pairs = new socd::SocdPair[_socd_pair_count]{
         socd::SocdPair{&InputState::left,   &InputState::right, horizontal_socd         },
  /* Mod X override C-Up input if both are pressed. Without this, neutral SOCD doesn't work
@@ -10,7 +10,7 @@ FgcMode::FgcMode(socd::SocdType horizontal_socd, socd::SocdType vertical_socd) {
   input instead of neutral. */
         // socd::SocdPair{ &InputState::mod_x, &InputState::c_up,  socd::SOCD_DIR1_PRIORITY},
         socd::SocdPair{ &InputState::down,  &InputState::mod_x, vertical_socd           },
-        socd::SocdPair{ &InputState::down,  &InputState::c_up,  vertical_socd           },
+        // socd::SocdPair{ &InputState::down,  &InputState::c_up,  vertical_socd           },
     };
 }
 
@@ -54,9 +54,6 @@ void FgcMode::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
 }
 
 void FgcMode::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
-
-    //can implement SOCD here for stick buttons, although not important cause can't press simulataneously
-    
 
     //both pressed
     if( inputs.c_up && inputs.c_left )
