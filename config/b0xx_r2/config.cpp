@@ -13,9 +13,18 @@
 #include <config.pb.h>
 
 Config config = default_config;
+//9 -> default L
+//10->default LS
+//11 -> default MS
+//A4 -> default Z
+
+//5-> default cdown (home)
+//A1-> default cleft (Select)
+//A2-> default cup ()
+//A0-> default cright ()  },
 
 const GpioButtonMapping button_mappings[] = {
-    { BTN_LF4, 9  },
+    { BTN_LF4, A4 },
     { BTN_LF3, 15 },
     { BTN_LF2, 16 },
     { BTN_LF1, 14 },
@@ -25,21 +34,21 @@ const GpioButtonMapping button_mappings[] = {
 
     { BTN_MB1, 12 },
 
-    { BTN_RT3, A1 },
+    { BTN_RT3, A0 },
     { BTN_RT4, A2 },
-    { BTN_RT2, 5  },
+    { BTN_RT2, 9  },
     { BTN_RT1, 13 },
-    { BTN_RT5, A0 },
+    { BTN_RT5, 5 },
 
     { BTN_RF1, 4  },
     { BTN_RF2, A5 },
-    { BTN_RF3, A4 },
+    { BTN_RF3, 10 },
     { BTN_RF4, A3 },
 
     { BTN_RF5, 0  },
     { BTN_RF6, 1  },
-    { BTN_RF7, 10 },
-    { BTN_RF8, 11 },
+    { BTN_RF7, 11 },
+    { BTN_RF8, A1 },
 };
 const size_t button_count = sizeof(button_mappings) / sizeof(GpioButtonMapping);
 
